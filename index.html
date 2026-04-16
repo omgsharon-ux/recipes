@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Recipes</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* ── Search bar ── */
+    #search {
+      width: 100%;
+      height: 70px;
+      font-size: 28px;
+      font-family: Arial, sans-serif;
+      padding: 0 20px;
+      margin: 30px 0 20px;
+      border: 2px solid lightblue;
+      border-radius: 6px;
+      box-sizing: border-box;
+      -webkit-appearance: none; /* prevents iOS styling quirks */
+    }
+
+    #search:focus {
+      outline: none;
+      border-color: #6bb8d4;
+    }
+
+    /* ── Recipe list ── */
+    #recipe-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 40px;
+    }
+
+    #recipe-list li {
+      margin-bottom: 16px;
+    }
+
+    #recipe-list li a {
+      display: block;
+      width: 100%;
+      padding: 22px 20px;
+      background-color: lightblue;
+      color: white;
+      font-size: 26px;
+      font-weight: bold;
+      font-family: Arial, sans-serif;
+      text-decoration: none;
+      text-transform: uppercase;
+      border-radius: 6px;
+      box-sizing: border-box;
+      /* smooth tap highlight on iOS */
+      -webkit-tap-highlight-color: rgba(0,0,0,0.1);
+    }
+
+    #recipe-list li a:hover,
+    #recipe-list li a:active {
+      background-color: #6bb8d4;
+    }
+
+    /* ── No-results message ── */
+    #no-results {
+      display: none;
+      font-size: 26px;
+      color: #888;
+      text-align: center;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="header-banner">My Recipes</div>
+  </header>
+
+  <main>
+    <input
+      type="search"
+      id="search"
+      placeholder="Search recipes…"
+      aria-label="Search recipes"
+      autocomplete="off"
+      autocorrect="off"
+      autocapitalize="off"
+      spellcheck="false"
+    />
+
+    <ul id="recipe-list"></ul>
+    <p id="no-results">No recipes found.</p>
+  </main>
+
+  <script>
+    /*
+     * ──────────────────────────────────────────────────────────────
+     * RECIPE LIST
+     * To add a new recipe, add an entry to the array below:
+     *   { name: "Recipe Name", file: "Recipe Name.html" }
+     * Make sure the .html file lives in the same folder as this file.
+     * ──────────────────────────────────────────────────────────────
+     */
+    const recipes = [
+      { name: "Chicken Bacon Ranch Protein Bowl", file: "Chicken Bacon Ranch Protein Bowl.html" }
+    ];
+
+    const list      = document.getElementById("recipe-list");
+    const noResults = document.getElementById("no-results");
+    const search    = document.getElementById("search");
+
+    function renderRecipes(filter) {
+      const query   = (filter || "").trim().toLowerCase();
+      const matches = recipes.filter(r => r.name.toLowerCase().includes(query));
+
+      list.innerHTML = "";
+
+      if (matches.length === 0) {
+        noResults.style.display = "block";
+        return;
+      }
+
+      noResults.style.display = "none";
+
+      matches.forEach(function(recipe) {
+        const li = document.createElement("li");
+        const a  = document.createElement("a");
+        a.href        = recipe.file;
+        a.textContent = recipe.name;
+        li.appendChild(a);
+        list.appendChild(li);
+      });
+    }
+
+    // Initial render — show all recipes
+    renderRecipes("");
+
+    // Filter as Sharon types
+    search.addEventListener("input", function() {
+      renderRecipes(this.value);
+    });
+  </script>
+
+</body>
+</html>

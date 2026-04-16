@@ -1,0 +1,124 @@
+/* Reset default margin and padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Basic styling for navigation */
+nav {
+    background-color: #333;
+    padding: 10px;
+    text-align: center;
+}
+
+nav ul {
+    list-style-type: none;
+    
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 10px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+/* Recipe Cards */
+.recipe-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 20px;
+}
+
+.recipe-card {
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+
+.recipe-card img {
+    width: 100%;
+    height: auto;
+}
+
+.recipe-card h2 {
+    margin-top: 10px;
+}
+
+.recipe-card h2 a {
+    color: #333;
+    text-decoration: none;
+}
+
+body {
+    width: 85%;
+    margin: auto;
+    font-size: 28px; /* Default body text size */
+    background-color: white;
+    color: black;
+    font-family: Arial, sans-serif;
+}
+
+header .header-banner {
+    background-color: lightblue;
+    height: 150px;
+    color: black;
+    font-size: 30px; /* Title font size */
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.recipe-image {
+    width: 100%;
+    display: block;
+    margin-bottom: 20px;
+}
+
+li {
+    margin-bottom:20px
+}
+
+h1 {
+    font-size: 30px; /* H1 font size */
+    margin-top: 20px;
+    text-transform: uppercase;
+}
+
+h2 {
+    font-size: 28px; /* H1 font size */
+    margin-top: 20px;
+    text-transform: uppercase;
+    text-decoration: underline;
+}
+
+.reset-button {
+    width: 70%;
+    height: 120px;
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+    background-color: lightblue;
+    border: none;
+    cursor: pointer;
+    display: block;
+    margin: 20px auto;
+}
+
+footer {
+    text-align: center;
+    margin-top: 20px;
+}
+
+input[type="checkbox"]:checked + label {
+    text-decoration: line-through;
+}
+
+input[type="checkbox"]:checked + label.step-description {
+    opacity: 0.2;
+}
