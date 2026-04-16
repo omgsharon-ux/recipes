@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Green Bean Casserole</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        main { padding-bottom: 40px; }
+        footer { padding: 24px 0 60px; font-size: 22px; text-align: center; color: #888; border-top: 1px solid #e8e8e8; margin-top: 40px; }
+        .back-link { display: inline-flex; align-items: center; gap: 6px; margin: 20px 0 16px; font-size: 22px; color: #6bb8d4; text-decoration: none; font-weight: 600; letter-spacing: 0.01em; }
+        .back-link:hover { color: #4a9db8; }
+        header { position: relative; height: 300px; background-size: cover; background-position: center; background-color: #444; overflow: hidden; width: 100vw; margin-left: calc(-50vw + 50%); }
+        header::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.15) 55%, transparent 100%); }
+        header .header-banner { position: absolute; bottom: 0; left: 0; right: 0; padding: 22px 8%; color: #fff; font-size: 32px; font-weight: bold; text-transform: uppercase; letter-spacing: 0.06em; background: none; height: auto; display: block; text-align: left; z-index: 1; text-shadow: 0 2px 6px rgba(0,0,0,0.5); }
+        .section-heading { display: flex; align-items: center; gap: 10px; font-size: 26px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em; color: #222; margin: 36px 0 18px; padding-bottom: 8px; border-bottom: 3px solid #6bb8d4; }
+        .section-heading .icon { font-size: 22px; }
+        .check-item { display: flex; align-items: flex-start; gap: 16px; margin-bottom: 20px; padding: 14px 16px; background: #f8fbfd; border-radius: 8px; border-left: 4px solid transparent; transition: border-color 0.2s, background 0.2s; }
+        .check-item:has(input:checked) { border-left-color: #6bb8d4; background: #eef7fb; }
+        .check-item input[type="checkbox"] { flex-shrink: 0; width: 28px; height: 28px; margin-top: 2px; accent-color: #6bb8d4; cursor: pointer; }
+        .check-item label { font-size: 24px; line-height: 1.4; cursor: pointer; flex: 1; }
+        input[type="checkbox"]:checked + label { text-decoration: line-through; color: #999; }
+        input[type="checkbox"]:checked + .step-num + label { text-decoration: line-through; color: #999; }
+        .step-num { flex-shrink: 0; width: 36px; height: 36px; background: #6bb8d4; color: white; font-size: 18px; font-weight: 800; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-top: 0; }
+        .check-item:has(input:checked) .step-num { background: #a8d8ea; }
+        .notes { margin-top: 12px; }
+        .notes-body { background: #fffbf0; border-left: 4px solid #f0c040; border-radius: 0 8px 8px 0; padding: 16px 20px; font-size: 24px; line-height: 1.5; color: #555; }
+        .reset-button { width: 100%; max-width: 100%; height: auto; padding: 24px 0; margin: 40px auto 0; font-size: 22px; font-weight: 800; color: white; background: linear-gradient(135deg, #6bb8d4 0%, #4a9db8 100%); border: none; border-radius: 10px; cursor: pointer; display: block; letter-spacing: 0.05em; text-transform: uppercase; box-shadow: 0 4px 12px rgba(107,184,212,0.4); transition: transform 0.1s, box-shadow 0.1s; }
+        .reset-button:active { transform: translateY(1px); box-shadow: 0 2px 6px rgba(107,184,212,0.3); }
+    </style>
+</head>
+<body>
+    <header style="background-image: url('images/green-bean-casserole.jpg')">
+        <div class="header-banner">Green Bean Casserole</div>
+    </header>
+    <main>
+        <a href="index.html" class="back-link">&#8592; Back to Recipes</a>
+        <div class="ingredients">
+            <h2 class="section-heading"><span class="icon">🛒</span> Ingredients</h2>
+            <div class="check-item">
+                <input type="checkbox" id="ing1">
+                <label for="ing1">1 can (10 1/2 oz) Condensed Cream of Mushroom Soup</label>
+            </div>
+            <div class="check-item">
+                <input type="checkbox" id="ing2">
+                <label for="ing2">3/4 cup milk</label>
+            </div>
+            <div class="check-item">
+                <input type="checkbox" id="ing3">
+                <label for="ing3">1/8 tsp ground black pepper</label>
+            </div>
+            <div class="check-item">
+                <input type="checkbox" id="ing4">
+                <label for="ing4">2 cans (14 1/2 oz each) any style green beans, drained</label>
+            </div>
+            <div class="check-item">
+                <input type="checkbox" id="ing5">
+                <label for="ing5">1 1/3 cups crispy fried onions, divided</label>
+            </div>
+        </div>
+        <div class="preparation">
+            <h2 class="section-heading"><span class="icon">👩‍🍳</span> Instructions</h2>
+            <div class="check-item">
+                <input type="checkbox" id="step1">
+                <span class="step-num">1</span>
+                <label for="step1">Preheat oven to 350°F.</label>
+            </div>
+            <div class="check-item">
+                <input type="checkbox" id="step2">
+                <span class="step-num">2</span>
+                <label for="step2">Mix condensed cream of mushroom soup, milk, and pepper in a 1 1/2-quart baking dish.</label>
+            </div>
+            <div class="check-item">
+                <input type="checkbox" id="step3">
+                <span class="step-num">3</span>
+                <label for="step3">Stir in green beans and 2/3 cup of the crispy fried onions.</label>
+            </div>
+            <div class="check-item">
+                <input type="checkbox" id="step4">
+                <span class="step-num">4</span>
+                <label for="step4">Bake 30 minutes or until hot. Stir.</label>
+            </div>
+            <div class="check-item">
+                <input type="checkbox" id="step5">
+                <span class="step-num">5</span>
+                <label for="step5">Top with remaining 2/3 cup onions. Bake 5 minutes longer or until onions are golden brown.</label>
+            </div>
+        </div>
+        <div class="notes">
+            <h2 class="section-heading">Notes</h2>
+            <p class="notes-body">Make-Ahead: Prepare through Step 3. Cover tightly with plastic wrap and foil and freeze. Thaw in the refrigerator the night before baking, then bake as directed. To bake from frozen, let stand 10 minutes at room temperature, then bake with 15-minute increment increases until center reaches 160°F.</p>
+        </div>
+        <button class="reset-button" onclick="resetCheckboxes()">&#10003; Reset All Checkboxes</button>
+    </main>
+    <footer>Powered by &#9749; &amp; &#127790;</footer>
+    <script>
+        function resetCheckboxes() {
+            document.querySelectorAll('input[type="checkbox"]').forEach(cb => cb.checked = false);
+        }
+    </script>
+</body>
+</html>
