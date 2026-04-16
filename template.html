@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chicken Bacon Ranch Protein Bowl</title>
+    <title>RECIPE_NAME</title>
     <link rel="stylesheet" href="styles.css">
     <style>
         /* ── Page chrome ─────────────────────────────── */
@@ -128,6 +128,21 @@
 
         .check-item:has(input:checked) .step-num {
             background: #a8d8ea;
+        }
+
+        /* ── Notes section ───────────────────────────── */
+        .notes {
+            margin-top: 12px;
+        }
+
+        .notes-body {
+            background: #fffbf0;
+            border-left: 4px solid #f0c040;
+            border-radius: 0 8px 8px 0;
+            padding: 16px 20px;
+            font-size: 24px;
+            line-height: 1.5;
+            color: #555;
         }
 
         /* ── FDA Nutrition Facts Label ───────────────── */
@@ -303,125 +318,35 @@
 </head>
 <body>
     <header>
-        <div class="header-banner">Chicken Bacon Ranch Protein Bowl</div>
+        <div class="header-banner">RECIPE_NAME</div>
     </header>
 
     <main>
         <a href="index.html" class="back-link">&#8592; Back to Recipes</a>
 
         <div class="hero-wrap">
-            <img src="images/chicken-bacon-ranch-protein-bowl.jpg" alt="Chicken Bacon Ranch Protein Bowl" class="recipe-image">
+            <img src="images/IMAGE_FILENAME" alt="RECIPE_NAME" class="recipe-image">
         </div>
 
         <!-- INGREDIENTS ─────────────────────────────── -->
         <div class="ingredients">
             <h2 class="section-heading"><span class="icon">🛒</span> Ingredients</h2>
-            <div class="check-item">
-                <input type="checkbox" id="ing1">
-                <label for="ing1">1 lb chicken breast, boneless, skinless, diced into 1-inch cubes</label>
-            </div>
-            <div class="check-item">
-                <input type="checkbox" id="ing2">
-                <label for="ing2">1 package turkey bacon, diced</label>
-            </div>
-            <div class="check-item">
-                <input type="checkbox" id="ing3">
-                <label for="ing3">1 cup Greek yogurt, 0% fat, plain</label>
-            </div>
-            <div class="check-item">
-                <input type="checkbox" id="ing4">
-                <label for="ing4">½ tsp salt</label>
-            </div>
-            <div class="check-item">
-                <input type="checkbox" id="ing5">
-                <label for="ing5">½ tsp pepper</label>
-            </div>
-            <div class="check-item">
-                <input type="checkbox" id="ing6">
-                <label for="ing6">½ tsp garlic powder</label>
-            </div>
-            <div class="check-item">
-                <input type="checkbox" id="ing7">
-                <label for="ing7">½ tsp onion powder</label>
-            </div>
-            <div class="check-item">
-                <input type="checkbox" id="ing8">
-                <label for="ing8">½ tsp dried dill</label>
-            </div>
-            <div class="check-item">
-                <input type="checkbox" id="ing9">
-                <label for="ing9">2 medium zucchini, diced (optional)</label>
-            </div>
-            <div class="check-item">
-                <input type="checkbox" id="ing10">
-                <label for="ing10">½ cup shredded cheddar cheese, 2%</label>
-            </div>
+            INGREDIENTS_LIST
         </div>
 
         <!-- INSTRUCTIONS ────────────────────────────── -->
         <div class="preparation">
             <h2 class="section-heading"><span class="icon">👩‍🍳</span> Instructions</h2>
-            <div class="check-item">
-                <input type="checkbox" id="step1">
-                <span class="step-num">1</span>
-                <label for="step1">Dice the chicken breast and turkey bacon. Heat a large skillet or wok over medium-high heat. Add the chicken and bacon, season with salt and pepper, and cook until the chicken reaches an internal temperature of 160°F.</label>
-            </div>
-            <div class="check-item">
-                <input type="checkbox" id="step2">
-                <span class="step-num">2</span>
-                <label for="step2">Transfer the chicken and bacon to a large mixing bowl. Add the garlic powder, onion powder, and dried dill, then fold in the Greek yogurt. Mix until well combined.</label>
-            </div>
-            <div class="check-item">
-                <input type="checkbox" id="step3">
-                <span class="step-num">3</span>
-                <label for="step3">Add the zucchini (or any other vegetables) to the same skillet and cook to your desired doneness. Return the chicken mixture to the pan and add the shredded cheddar. Stir until the cheese is melted and everything is well blended. Serve immediately.</label>
-            </div>
+            STEPS_LIST
         </div>
+
+        <!-- NOTES (omit entire block if no notes) ───── -->
+        NOTES_SECTION
 
         <!-- NUTRITION ───────────────────────────────── -->
         <div class="nutrition">
             <h2 class="section-heading"><span class="icon">📊</span> Nutrition</h2>
-            <div class="nf-label">
-                <p class="nf-title">Nutrition Facts</p>
-                <p class="nf-servings-count">About 4 servings per container</p>
-                <div class="nf-serving-size"><span>Serving size</span><span>4oz (113g)</span></div>
-                <div class="nf-bar-thick"></div>
-                <div class="nf-calories-block">
-                    <div>
-                        <p class="nf-calories-label">Amount per serving</p>
-                        <p class="nf-calories-label" style="font-size:20px;">Calories</p>
-                    </div>
-                    <span class="nf-calories-num">295</span>
-                </div>
-                <div class="nf-bar-medium"></div>
-                <p class="nf-dv-header">% Daily Value *</p>
-                <hr class="nf-rule">
-                <div class="nf-row bold"><span class="nf-name">Total Fat 11g</span><span class="nf-dv">14%</span></div>
-                <hr class="nf-rule">
-                <div class="nf-row indent"><span class="nf-name">Saturated Fat 4g</span><span class="nf-dv">20%</span></div>
-                <hr class="nf-rule">
-                <div class="nf-row indent"><span class="nf-name"><i>Trans</i> Fat 1g</span><span class="nf-dv"></span></div>
-                <hr class="nf-rule">
-                <div class="nf-row bold"><span class="nf-name">Cholesterol 90mg</span><span class="nf-dv">30%</span></div>
-                <hr class="nf-rule">
-                <div class="nf-row bold"><span class="nf-name">Sodium 536mg</span><span class="nf-dv">23%</span></div>
-                <hr class="nf-rule">
-                <div class="nf-row bold"><span class="nf-name">Total Carbohydrate 6g</span><span class="nf-dv">2%</span></div>
-                <hr class="nf-rule">
-                <div class="nf-row indent"><span class="nf-name">Dietary Fiber 1g</span><span class="nf-dv">4%</span></div>
-                <hr class="nf-rule">
-                <div class="nf-row indent"><span class="nf-name">Total Sugars 4g</span><span class="nf-dv"></span></div>
-                <hr class="nf-rule">
-                <div class="nf-row bold"><span class="nf-name">Protein 46g</span><span class="nf-dv"></span></div>
-                <div class="nf-vitamins">
-                    <div class="nf-vit-row"><span>Vitamin A 376IU</span><span></span></div>
-                    <div class="nf-vit-row"><span>Vitamin C 19mg</span><span>21%</span></div>
-                    <div class="nf-vit-row"><span>Calcium 181mg</span><span>14%</span></div>
-                    <div class="nf-vit-row"><span>Iron 1mg</span><span>6%</span></div>
-                    <div class="nf-vit-row"><span>Potassium 770mg</span><span>16%</span></div>
-                </div>
-                <p class="nf-footnote">* The % Daily Value (DV) tells you how much a nutrient in a serving of food contributes to a daily diet. 2,000 calories a day is used for general nutrition advice.</p>
-            </div>
+            NUTRITION_FACTS_LABEL
         </div>
 
         <button class="reset-button" onclick="resetCheckboxes()">&#10003; Reset All Checkboxes</button>

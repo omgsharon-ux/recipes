@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chicken Bacon Ranch Protein Bowl</title>
+    <title>Chicken Cacciatore</title>
     <link rel="stylesheet" href="styles.css">
     <style>
         /* ── Page chrome ─────────────────────────────── */
@@ -128,6 +128,21 @@
 
         .check-item:has(input:checked) .step-num {
             background: #a8d8ea;
+        }
+
+        /* ── Notes section ───────────────────────────── */
+        .notes {
+            margin-top: 12px;
+        }
+
+        .notes-body {
+            background: #fffbf0;
+            border-left: 4px solid #f0c040;
+            border-radius: 0 8px 8px 0;
+            padding: 16px 20px;
+            font-size: 24px;
+            line-height: 1.5;
+            color: #555;
         }
 
         /* ── FDA Nutrition Facts Label ───────────────── */
@@ -303,14 +318,14 @@
 </head>
 <body>
     <header>
-        <div class="header-banner">Chicken Bacon Ranch Protein Bowl</div>
+        <div class="header-banner">Chicken Cacciatore</div>
     </header>
 
     <main>
         <a href="index.html" class="back-link">&#8592; Back to Recipes</a>
 
         <div class="hero-wrap">
-            <img src="images/chicken-bacon-ranch-protein-bowl.jpg" alt="Chicken Bacon Ranch Protein Bowl" class="recipe-image">
+            <img src="images/chicken-cacciatore.jpg" alt="Chicken Cacciatore" class="recipe-image">
         </div>
 
         <!-- INGREDIENTS ─────────────────────────────── -->
@@ -318,43 +333,39 @@
             <h2 class="section-heading"><span class="icon">🛒</span> Ingredients</h2>
             <div class="check-item">
                 <input type="checkbox" id="ing1">
-                <label for="ing1">1 lb chicken breast, boneless, skinless, diced into 1-inch cubes</label>
+                <label for="ing1">1 lb boneless, skinless chicken breast</label>
             </div>
             <div class="check-item">
                 <input type="checkbox" id="ing2">
-                <label for="ing2">1 package turkey bacon, diced</label>
+                <label for="ing2">1/4 tsp salt</label>
             </div>
             <div class="check-item">
                 <input type="checkbox" id="ing3">
-                <label for="ing3">1 cup Greek yogurt, 0% fat, plain</label>
+                <label for="ing3">1/4 tsp pepper</label>
             </div>
             <div class="check-item">
                 <input type="checkbox" id="ing4">
-                <label for="ing4">½ tsp salt</label>
+                <label for="ing4">2 tsp olive oil</label>
             </div>
             <div class="check-item">
                 <input type="checkbox" id="ing5">
-                <label for="ing5">½ tsp pepper</label>
+                <label for="ing5">1 large Zucchini Squash</label>
             </div>
             <div class="check-item">
                 <input type="checkbox" id="ing6">
-                <label for="ing6">½ tsp garlic powder</label>
+                <label for="ing6">10 baby carrots or 2 large carrots</label>
             </div>
             <div class="check-item">
                 <input type="checkbox" id="ing7">
-                <label for="ing7">½ tsp onion powder</label>
+                <label for="ing7">1 tsp dried minced garlic</label>
             </div>
             <div class="check-item">
                 <input type="checkbox" id="ing8">
-                <label for="ing8">½ tsp dried dill</label>
+                <label for="ing8">1 (14.5 oz) can diced tomatoes</label>
             </div>
             <div class="check-item">
                 <input type="checkbox" id="ing9">
-                <label for="ing9">2 medium zucchini, diced (optional)</label>
-            </div>
-            <div class="check-item">
-                <input type="checkbox" id="ing10">
-                <label for="ing10">½ cup shredded cheddar cheese, 2%</label>
+                <label for="ing9">1 tbsp dried oregano</label>
             </div>
         </div>
 
@@ -364,18 +375,35 @@
             <div class="check-item">
                 <input type="checkbox" id="step1">
                 <span class="step-num">1</span>
-                <label for="step1">Dice the chicken breast and turkey bacon. Heat a large skillet or wok over medium-high heat. Add the chicken and bacon, season with salt and pepper, and cook until the chicken reaches an internal temperature of 160°F.</label>
+                <label for="step1">Begin by chopping vegetables. Dice zucchini and slice carrots. Using kitchen shears cut anything unwanted off chicken. Cut breast in half lengthwise and cut in half again to make a thinner serving of chicken.</label>
             </div>
             <div class="check-item">
                 <input type="checkbox" id="step2">
                 <span class="step-num">2</span>
-                <label for="step2">Transfer the chicken and bacon to a large mixing bowl. Add the garlic powder, onion powder, and dried dill, then fold in the Greek yogurt. Mix until well combined.</label>
+                <label for="step2">Heat a large deep skillet to medium heat. Add 2 tsp olive oil. Season chicken with salt and pepper. Working in batches, brown both sides of chicken. Set aside in a covered dish to keep warm.</label>
             </div>
             <div class="check-item">
                 <input type="checkbox" id="step3">
                 <span class="step-num">3</span>
-                <label for="step3">Add the zucchini (or any other vegetables) to the same skillet and cook to your desired doneness. Return the chicken mixture to the pan and add the shredded cheddar. Stir until the cheese is melted and everything is well blended. Serve immediately.</label>
+                <label for="step3">Add zucchini, carrots and minced garlic to the heated skillet. Stir often and cook for about 8 minutes. Add diced tomatoes and oregano.</label>
             </div>
+            <div class="check-item">
+                <input type="checkbox" id="step4">
+                <span class="step-num">4</span>
+                <label for="step4">Add chicken back to the skillet, pressing on it lightly to cover it in the sauce. Turn heat to low and add a lid. Cook for 10 to 15 minutes and double check internal temperature is 160F.</label>
+            </div>
+            <div class="check-item">
+                <input type="checkbox" id="step5">
+                <span class="step-num">5</span>
+                <label for="step5">Remove from heat and serve chicken with vegetables.</label>
+            </div>
+        </div>
+
+        <!-- NOTES ───────────────────────────────────── -->
+        <div class="notes">
+            <h2 class="section-heading">Notes</h2>
+            <p class="notes-body">One portion will provide approximately 3 ounces of meat and 1/2 cup of vegetables. Listen to your pouch and stop at the first sign of fullness.</p>
+            <p class="notes-body">Servings are shared to allow you to know how much the recipe will make, but <strong>not</strong> dictate how much you are supposed to eat.</p>
         </div>
 
         <!-- NUTRITION ───────────────────────────────── -->
@@ -384,41 +412,41 @@
             <div class="nf-label">
                 <p class="nf-title">Nutrition Facts</p>
                 <p class="nf-servings-count">About 4 servings per container</p>
-                <div class="nf-serving-size"><span>Serving size</span><span>4oz (113g)</span></div>
+                <div class="nf-serving-size"><span>Serving size</span><span>3oz (85g)</span></div>
                 <div class="nf-bar-thick"></div>
                 <div class="nf-calories-block">
                     <div>
                         <p class="nf-calories-label">Amount per serving</p>
                         <p class="nf-calories-label" style="font-size:20px;">Calories</p>
                     </div>
-                    <span class="nf-calories-num">295</span>
+                    <span class="nf-calories-num">180</span>
                 </div>
                 <div class="nf-bar-medium"></div>
                 <p class="nf-dv-header">% Daily Value *</p>
                 <hr class="nf-rule">
-                <div class="nf-row bold"><span class="nf-name">Total Fat 11g</span><span class="nf-dv">14%</span></div>
+                <div class="nf-row bold"><span class="nf-name">Total Fat 6g</span><span class="nf-dv">8%</span></div>
                 <hr class="nf-rule">
-                <div class="nf-row indent"><span class="nf-name">Saturated Fat 4g</span><span class="nf-dv">20%</span></div>
+                <div class="nf-row indent"><span class="nf-name">Saturated Fat 1g</span><span class="nf-dv">5%</span></div>
                 <hr class="nf-rule">
-                <div class="nf-row indent"><span class="nf-name"><i>Trans</i> Fat 1g</span><span class="nf-dv"></span></div>
+                <div class="nf-row indent"><span class="nf-name"><i>Trans</i> Fat 0g</span><span class="nf-dv"></span></div>
                 <hr class="nf-rule">
-                <div class="nf-row bold"><span class="nf-name">Cholesterol 90mg</span><span class="nf-dv">30%</span></div>
+                <div class="nf-row bold"><span class="nf-name">Cholesterol 48mg</span><span class="nf-dv">16%</span></div>
                 <hr class="nf-rule">
-                <div class="nf-row bold"><span class="nf-name">Sodium 536mg</span><span class="nf-dv">23%</span></div>
+                <div class="nf-row bold"><span class="nf-name">Sodium 202mg</span><span class="nf-dv">9%</span></div>
                 <hr class="nf-rule">
-                <div class="nf-row bold"><span class="nf-name">Total Carbohydrate 6g</span><span class="nf-dv">2%</span></div>
+                <div class="nf-row bold"><span class="nf-name">Total Carbohydrate 11g</span><span class="nf-dv">4%</span></div>
                 <hr class="nf-rule">
                 <div class="nf-row indent"><span class="nf-name">Dietary Fiber 1g</span><span class="nf-dv">4%</span></div>
                 <hr class="nf-rule">
-                <div class="nf-row indent"><span class="nf-name">Total Sugars 4g</span><span class="nf-dv"></span></div>
+                <div class="nf-row indent"><span class="nf-name">Total Sugars 2g</span><span class="nf-dv"></span></div>
                 <hr class="nf-rule">
-                <div class="nf-row bold"><span class="nf-name">Protein 46g</span><span class="nf-dv"></span></div>
+                <div class="nf-row bold"><span class="nf-name">Protein 24g</span><span class="nf-dv"></span></div>
                 <div class="nf-vitamins">
-                    <div class="nf-vit-row"><span>Vitamin A 376IU</span><span></span></div>
-                    <div class="nf-vit-row"><span>Vitamin C 19mg</span><span>21%</span></div>
-                    <div class="nf-vit-row"><span>Calcium 181mg</span><span>14%</span></div>
+                    <div class="nf-vit-row"><span>Vitamin A 2443IU</span><span></span></div>
+                    <div class="nf-vit-row"><span>Vitamin C 11mg</span><span>12%</span></div>
+                    <div class="nf-vit-row"><span>Calcium 31mg</span><span>2%</span></div>
                     <div class="nf-vit-row"><span>Iron 1mg</span><span>6%</span></div>
-                    <div class="nf-vit-row"><span>Potassium 770mg</span><span>16%</span></div>
+                    <div class="nf-vit-row"><span>Potassium 476mg</span><span>10%</span></div>
                 </div>
                 <p class="nf-footnote">* The % Daily Value (DV) tells you how much a nutrient in a serving of food contributes to a daily diet. 2,000 calories a day is used for general nutrition advice.</p>
             </div>
