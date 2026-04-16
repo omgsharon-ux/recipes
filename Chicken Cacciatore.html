@@ -20,6 +20,49 @@
             margin-top: 40px;
         }
 
+        /* ── Header with photo background ───────────── */
+        header {
+            position: relative;
+            height: 300px;
+            background-size: cover;
+            background-position: center;
+            background-color: #444;
+            overflow: hidden;
+            width: 100vw;
+            margin-left: calc(-50vw + 50%);
+        }
+
+        header::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                to top,
+                rgba(0,0,0,0.72) 0%,
+                rgba(0,0,0,0.15) 55%,
+                transparent 100%
+            );
+        }
+
+        header .header-banner {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 22px 8%;
+            color: #fff;
+            font-size: 32px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            background: none;
+            height: auto;
+            display: block;
+            text-align: left;
+            z-index: 1;
+            text-shadow: 0 2px 6px rgba(0,0,0,0.5);
+        }
+
         /* ── Back link ───────────────────────────────── */
         .back-link {
             display: inline-flex;
@@ -35,39 +78,6 @@
 
         .back-link:hover {
             color: #4a9db8;
-        }
-
-        /* ── Ingredients + image side-by-side ────────── */
-        .ingredients-wrap {
-            display: flex;
-            gap: 28px;
-            align-items: flex-start;
-        }
-
-        .ingredients-wrap .ingredients {
-            flex: 1;
-            min-width: 0;
-        }
-
-        .recipe-image {
-            width: 260px;
-            flex-shrink: 0;
-            border-radius: 12px;
-            box-shadow: 0 4px 16px rgba(0,0,0,0.14);
-            display: block;
-            margin-top: 8px;
-            object-fit: cover;
-        }
-
-        /* On small screens, stack image above ingredients */
-        @media (max-width: 600px) {
-            .ingredients-wrap {
-                flex-direction: column-reverse;
-            }
-            .recipe-image {
-                width: 100%;
-                margin-top: 0;
-            }
         }
 
         /* ── Section headings ────────────────────────── */
@@ -198,7 +208,6 @@
             margin: 2px 0 3px;
         }
 
-        /* Thick black bars */
         .nf-bar-thick {
             background: #000;
             height: 10px;
@@ -211,14 +220,12 @@
             margin: 4px -6px;
         }
 
-        /* Thin gray rules */
         .nf-rule {
             border: none;
             border-top: 1px solid #888;
             margin: 2px 0;
         }
 
-        /* Calories block */
         .nf-calories-block {
             display: flex;
             align-items: flex-end;
@@ -231,18 +238,12 @@
             line-height: 1.1;
         }
 
-        .nf-calories-sub {
-            font-size: 10px;
-            font-weight: 400;
-        }
-
         .nf-calories-num {
             font-size: 52px;
             font-weight: 900;
             line-height: 1;
         }
 
-        /* DV header line */
         .nf-dv-header {
             font-size: 11px;
             font-weight: 700;
@@ -250,7 +251,6 @@
             margin: 2px 0;
         }
 
-        /* Nutrient rows */
         .nf-row {
             display: flex;
             justify-content: space-between;
@@ -259,33 +259,12 @@
             padding: 1px 0;
         }
 
-        .nf-row .nf-name {
-            flex: 1;
-        }
+        .nf-row .nf-name { flex: 1; }
+        .nf-row .nf-dv { font-weight: 700; white-space: nowrap; }
+        .nf-row.bold .nf-name { font-weight: 700; }
+        .nf-row.indent .nf-name { padding-left: 16px; font-weight: 400; }
 
-        .nf-row .nf-dv {
-            font-weight: 700;
-            white-space: nowrap;
-        }
-
-        .nf-row.bold .nf-name {
-            font-weight: 700;
-        }
-
-        .nf-row.indent .nf-name {
-            padding-left: 16px;
-            font-weight: 400;
-        }
-
-        .nf-row.double-indent .nf-name {
-            padding-left: 28px;
-            font-weight: 400;
-        }
-
-        /* Vitamins section (thick bar before it, thin rules within) */
-        .nf-vitamins {
-            border-top: 7px solid #000;
-        }
+        .nf-vitamins { border-top: 7px solid #000; }
 
         .nf-vit-row {
             display: flex;
@@ -295,11 +274,8 @@
             border-bottom: 1px solid #888;
         }
 
-        .nf-vit-row:last-child {
-            border-bottom: none;
-        }
+        .nf-vit-row:last-child { border-bottom: none; }
 
-        /* Footnote */
         .nf-footnote {
             font-size: 9px;
             border-top: 1px solid #000;
@@ -311,8 +287,6 @@
         /* ── Reset button ────────────────────────────── */
         .reset-button {
             width: 100%;
-            max-width: 100%;
-            height: auto;
             padding: 24px 0;
             margin: 40px auto 0;
             font-size: 22px;
@@ -336,55 +310,53 @@
     </style>
 </head>
 <body>
-    <header>
+
+    <header style="background-image: url('images/chicken-cacciatore.jpg')">
         <div class="header-banner">Chicken Cacciatore</div>
     </header>
 
     <main>
         <a href="index.html" class="back-link">&#8592; Back to Recipes</a>
 
-        <!-- INGREDIENTS + IMAGE side by side ────────── -->
-        <div class="ingredients-wrap">
-            <div class="ingredients">
-                <h2 class="section-heading"><span class="icon">🛒</span> Ingredients</h2>
-                <div class="check-item">
-                    <input type="checkbox" id="ing1">
-                    <label for="ing1">1 lb boneless, skinless chicken breast</label>
-                </div>
-                <div class="check-item">
-                    <input type="checkbox" id="ing2">
-                    <label for="ing2">1/4 tsp salt</label>
-                </div>
-                <div class="check-item">
-                    <input type="checkbox" id="ing3">
-                    <label for="ing3">1/4 tsp pepper</label>
-                </div>
-                <div class="check-item">
-                    <input type="checkbox" id="ing4">
-                    <label for="ing4">2 tsp olive oil</label>
-                </div>
-                <div class="check-item">
-                    <input type="checkbox" id="ing5">
-                    <label for="ing5">1 large Zucchini Squash</label>
-                </div>
-                <div class="check-item">
-                    <input type="checkbox" id="ing6">
-                    <label for="ing6">10 baby carrots or 2 large carrots</label>
-                </div>
-                <div class="check-item">
-                    <input type="checkbox" id="ing7">
-                    <label for="ing7">1 tsp dried minced garlic</label>
-                </div>
-                <div class="check-item">
-                    <input type="checkbox" id="ing8">
-                    <label for="ing8">1 (14.5 oz) can diced tomatoes</label>
-                </div>
-                <div class="check-item">
-                    <input type="checkbox" id="ing9">
-                    <label for="ing9">1 tbsp dried oregano</label>
-                </div>
+        <!-- INGREDIENTS ─────────────────────────────── -->
+        <div class="ingredients">
+            <h2 class="section-heading"><span class="icon">🛒</span> Ingredients</h2>
+            <div class="check-item">
+                <input type="checkbox" id="ing1">
+                <label for="ing1">1 lb boneless, skinless chicken breast</label>
             </div>
-            <img src="images/chicken-cacciatore.jpg" alt="Chicken Cacciatore" class="recipe-image">
+            <div class="check-item">
+                <input type="checkbox" id="ing2">
+                <label for="ing2">1/4 tsp salt</label>
+            </div>
+            <div class="check-item">
+                <input type="checkbox" id="ing3">
+                <label for="ing3">1/4 tsp pepper</label>
+            </div>
+            <div class="check-item">
+                <input type="checkbox" id="ing4">
+                <label for="ing4">2 tsp olive oil</label>
+            </div>
+            <div class="check-item">
+                <input type="checkbox" id="ing5">
+                <label for="ing5">1 large Zucchini Squash</label>
+            </div>
+            <div class="check-item">
+                <input type="checkbox" id="ing6">
+                <label for="ing6">10 baby carrots or 2 large carrots</label>
+            </div>
+            <div class="check-item">
+                <input type="checkbox" id="ing7">
+                <label for="ing7">1 tsp dried minced garlic</label>
+            </div>
+            <div class="check-item">
+                <input type="checkbox" id="ing8">
+                <label for="ing8">1 (14.5 oz) can diced tomatoes</label>
+            </div>
+            <div class="check-item">
+                <input type="checkbox" id="ing9">
+                <label for="ing9">1 tbsp dried oregano</label>
+            </div>
         </div>
 
         <!-- INSTRUCTIONS ────────────────────────────── -->
