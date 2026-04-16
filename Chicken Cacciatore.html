@@ -37,19 +37,37 @@
             color: #4a9db8;
         }
 
-        /* ── Hero image ──────────────────────────────── */
-        .hero-wrap {
-            position: relative;
-            margin-bottom: 32px;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.12);
+        /* ── Ingredients + image side-by-side ────────── */
+        .ingredients-wrap {
+            display: flex;
+            gap: 28px;
+            align-items: flex-start;
+        }
+
+        .ingredients-wrap .ingredients {
+            flex: 1;
+            min-width: 0;
         }
 
         .recipe-image {
-            width: 100%;
+            width: 260px;
+            flex-shrink: 0;
+            border-radius: 12px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.14);
             display: block;
-            margin-bottom: 0;
+            margin-top: 8px;
+            object-fit: cover;
+        }
+
+        /* On small screens, stack image above ingredients */
+        @media (max-width: 600px) {
+            .ingredients-wrap {
+                flex-direction: column-reverse;
+            }
+            .recipe-image {
+                width: 100%;
+                margin-top: 0;
+            }
         }
 
         /* ── Section headings ────────────────────────── */
@@ -143,6 +161,7 @@
             font-size: 24px;
             line-height: 1.5;
             color: #555;
+            margin-bottom: 12px;
         }
 
         /* ── FDA Nutrition Facts Label ───────────────── */
@@ -324,49 +343,48 @@
     <main>
         <a href="index.html" class="back-link">&#8592; Back to Recipes</a>
 
-        <div class="hero-wrap">
+        <!-- INGREDIENTS + IMAGE side by side ────────── -->
+        <div class="ingredients-wrap">
+            <div class="ingredients">
+                <h2 class="section-heading"><span class="icon">🛒</span> Ingredients</h2>
+                <div class="check-item">
+                    <input type="checkbox" id="ing1">
+                    <label for="ing1">1 lb boneless, skinless chicken breast</label>
+                </div>
+                <div class="check-item">
+                    <input type="checkbox" id="ing2">
+                    <label for="ing2">1/4 tsp salt</label>
+                </div>
+                <div class="check-item">
+                    <input type="checkbox" id="ing3">
+                    <label for="ing3">1/4 tsp pepper</label>
+                </div>
+                <div class="check-item">
+                    <input type="checkbox" id="ing4">
+                    <label for="ing4">2 tsp olive oil</label>
+                </div>
+                <div class="check-item">
+                    <input type="checkbox" id="ing5">
+                    <label for="ing5">1 large Zucchini Squash</label>
+                </div>
+                <div class="check-item">
+                    <input type="checkbox" id="ing6">
+                    <label for="ing6">10 baby carrots or 2 large carrots</label>
+                </div>
+                <div class="check-item">
+                    <input type="checkbox" id="ing7">
+                    <label for="ing7">1 tsp dried minced garlic</label>
+                </div>
+                <div class="check-item">
+                    <input type="checkbox" id="ing8">
+                    <label for="ing8">1 (14.5 oz) can diced tomatoes</label>
+                </div>
+                <div class="check-item">
+                    <input type="checkbox" id="ing9">
+                    <label for="ing9">1 tbsp dried oregano</label>
+                </div>
+            </div>
             <img src="images/chicken-cacciatore.jpg" alt="Chicken Cacciatore" class="recipe-image">
-        </div>
-
-        <!-- INGREDIENTS ─────────────────────────────── -->
-        <div class="ingredients">
-            <h2 class="section-heading"><span class="icon">🛒</span> Ingredients</h2>
-            <div class="check-item">
-                <input type="checkbox" id="ing1">
-                <label for="ing1">1 lb boneless, skinless chicken breast</label>
-            </div>
-            <div class="check-item">
-                <input type="checkbox" id="ing2">
-                <label for="ing2">1/4 tsp salt</label>
-            </div>
-            <div class="check-item">
-                <input type="checkbox" id="ing3">
-                <label for="ing3">1/4 tsp pepper</label>
-            </div>
-            <div class="check-item">
-                <input type="checkbox" id="ing4">
-                <label for="ing4">2 tsp olive oil</label>
-            </div>
-            <div class="check-item">
-                <input type="checkbox" id="ing5">
-                <label for="ing5">1 large Zucchini Squash</label>
-            </div>
-            <div class="check-item">
-                <input type="checkbox" id="ing6">
-                <label for="ing6">10 baby carrots or 2 large carrots</label>
-            </div>
-            <div class="check-item">
-                <input type="checkbox" id="ing7">
-                <label for="ing7">1 tsp dried minced garlic</label>
-            </div>
-            <div class="check-item">
-                <input type="checkbox" id="ing8">
-                <label for="ing8">1 (14.5 oz) can diced tomatoes</label>
-            </div>
-            <div class="check-item">
-                <input type="checkbox" id="ing9">
-                <label for="ing9">1 tbsp dried oregano</label>
-            </div>
         </div>
 
         <!-- INSTRUCTIONS ────────────────────────────── -->
