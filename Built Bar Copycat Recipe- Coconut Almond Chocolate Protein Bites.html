@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Built Bar Copycat Recipe: Coconut Almond Chocolate Protein Bites</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        main { padding-bottom: 40px; }
+        footer { padding: 24px 0 60px; font-size: 22px; text-align: center; color: #888; border-top: 1px solid #e8e8e8; margin-top: 40px; }
+        .back-link { display: inline-flex; align-items: center; gap: 6px; margin: 20px 0 16px; font-size: 22px; color: #6bb8d4; text-decoration: none; font-weight: 600; letter-spacing: 0.01em; }
+        .back-link:hover { color: #4a9db8; }
+        header { position: relative; height: 300px; background-size: cover; background-position: center; background-color: #444; overflow: hidden; width: 100vw; margin-left: calc(-50vw + 50%); }
+        header::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.15) 55%, transparent 100%); }
+        header .header-banner { position: absolute; bottom: 0; left: 0; right: 0; padding: 22px 8%; color: #fff; font-size: 26px; font-weight: bold; text-transform: uppercase; letter-spacing: 0.06em; background: none; height: auto; display: block; text-align: left; z-index: 1; text-shadow: 0 2px 6px rgba(0,0,0,0.5); }
+        .section-heading { display: flex; align-items: center; gap: 10px; font-size: 26px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em; color: #222; margin: 36px 0 18px; padding-bottom: 8px; border-bottom: 3px solid #6bb8d4; }
+        .section-heading .icon { font-size: 22px; }
+        .check-item { display: flex; align-items: flex-start; gap: 16px; margin-bottom: 20px; padding: 14px 16px; background: #f8fbfd; border-radius: 8px; border-left: 4px solid transparent; transition: border-color 0.2s, background 0.2s; }
+        .check-item:has(input:checked) { border-left-color: #6bb8d4; background: #eef7fb; }
+        .check-item input[type="checkbox"] { flex-shrink: 0; width: 28px; height: 28px; margin-top: 2px; accent-color: #6bb8d4; cursor: pointer; }
+        .check-item label { font-size: 24px; line-height: 1.4; cursor: pointer; flex: 1; }
+        input[type="checkbox"]:checked + label { text-decoration: line-through; color: #999; }
+        .step-num { flex-shrink: 0; width: 36px; height: 36px; background: #6bb8d4; color: white; font-size: 18px; font-weight: 800; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-top: 0; }
+        .check-item:has(input:checked) .step-num { background: #a8d8ea; }
+        .notes { margin-top: 12px; }
+        .notes-body { background: #fffbf0; border-left: 4px solid #f0c040; border-radius: 0 8px 8px 0; padding: 16px 20px; font-size: 24px; line-height: 1.5; color: #555; }
+        .nutrition { margin-top: 12px; }
+        .nf-label { font-family: Arial, Helvetica, sans-serif; border: 2px solid #000; padding: 4px 6px 4px; max-width: 320px; box-sizing: border-box; }
+        .nf-title { font-size: 36px; font-weight: 900; line-height: 1; margin: 0 0 0; letter-spacing: -0.5px; }
+        .nf-servings-count { font-size: 14px; margin: 2px 0 0; }
+        .nf-serving-size { font-size: 14px; font-weight: 700; display: flex; justify-content: space-between; margin: 2px 0 3px; }
+        .nf-bar-thick { background: #000; height: 10px; margin: 4px -6px; }
+        .nf-bar-medium { background: #000; height: 5px; margin: 4px -6px; }
+        .nf-rule { border: none; border-top: 1px solid #888; margin: 2px 0; }
+        .nf-calories-block { display: flex; align-items: flex-end; justify-content: space-between; }
+        .nf-calories-label { font-size: 13px; font-weight: 700; line-height: 1.1; }
+        .nf-calories-num { font-size: 52px; font-weight: 900; line-height: 1; }
+        .nf-dv-header { font-size: 11px; font-weight: 700; text-align: right; margin: 2px 0; }
+        .nf-row { display: flex; justify-content: space-between; align-items: baseline; font-size: 13px; padding: 1px 0; }
+        .nf-row .nf-name { flex: 1; }
+        .nf-row .nf-dv { font-weight: 700; white-space: nowrap; }
+        .nf-row.bold .nf-name { font-weight: 700; }
+        .nf-row.indent .nf-name { padding-left: 16px; font-weight: 400; }
+        .nf-footnote { font-size: 9px; border-top: 1px solid #000; margin-top: 4px; padding-top: 3px; line-height: 1.3; }
+        .reset-button { width: 100%; max-width: 100%; height: auto; padding: 24px 0; margin: 40px auto 0; font-size: 22px; font-weight: 800; color: white; background: linear-gradient(135deg, #6bb8d4 0%, #4a9db8 100%); border: none; border-radius: 10px; cursor: pointer; display: block; letter-spacing: 0.05em; text-transform: uppercase; box-shadow: 0 4px 12px rgba(107,184,212,0.4); transition: transform 0.1s, box-shadow 0.1s; }
+        .reset-button:active { transform: translateY(1px); box-shadow: 0 2px 6px rgba(107,184,212,0.3); }
+    </style>
+</head>
+<body>
+    <header style="background-image: url('images/built-bar-copycat-recipe-coconut-almond-chocolate-protein-bites.jpg')">
+        <div class="header-banner">Built Bar Copycat: Coconut Almond Chocolate Protein Bites</div>
+    </header>
+    <main>
+        <a href="index.html" class="back-link">&#8592; Back to Recipes</a>
+        <div class="ingredients">
+            <h2 class="section-heading"><span class="icon">🛒</span> Ingredients</h2>
+            <div class="check-item">
+                <input type="checkbox" id="ing1">
+                <label for="ing1">1 scoop vanilla protein powder</label>
+            </div>
+            <div class="check-item">
+                <input type="checkbox" id="ing2">
+                <label for="ing2">4 tablespoons almond butter</label>
+            </div>
+            <div class="check-item">
+                <input type="checkbox" id="ing3">
+                <label for="ing3">1 tablespoon zero calorie powdered sweetener</label>
+            </div>
+            <div class="check-item">
+                <input type="checkbox" id="ing4">
+                <label for="ing4">1/4 teaspoon coconut extract</label>
+            </div>
+            <div class="check-item">
+                <input type="checkbox" id="ing5">
+                <label for="ing5">4 tablespoons Lily's sugar free chocolate chips</label>
+            </div>
+            <div class="check-item">
+                <input type="checkbox" id="ing6">
+                <label for="ing6">10 small almonds</label>
+            </div>
+            <div class="check-item">
+                <input type="checkbox" id="ing7">
+                <label for="ing7">1 pinch coconut flakes</label>
+            </div>
+        </div>
+        <div class="preparation">
+            <h2 class="section-heading"><span class="icon">👩‍🍳</span> Instructions</h2>
+            <div class="check-item">
+                <input type="checkbox" id="step1">
+                <span class="step-num">1</span>
+                <label for="step1">Mix protein powder with almond butter, zero calorie powdered sugar, and coconut extract. Add 1 tablespoon of water to mix properly. If too dry, add one teaspoon at a time until you can form a dough. Not too much water or it will be too sticky!</label>
+            </div>
+            <div class="check-item">
+                <input type="checkbox" id="step2">
+                <span class="step-num">2</span>
+                <label for="step2">Form into 5 equal balls.</label>
+            </div>
+            <div class="check-item">
+                <input type="checkbox" id="step3">
+                <span class="step-num">3</span>
+                <label for="step3">Melt the chocolate.</label>
+            </div>
+            <div class="check-item">
+                <input type="checkbox" id="step4">
+                <span class="step-num">4</span>
+                <label for="step4">Add 2 almonds to the top of each ball.</label>
+            </div>
+            <div class="check-item">
+                <input type="checkbox" id="step5">
+                <span class="step-num">5</span>
+                <label for="step5">Add one tablespoon of melted chocolate to each ball.</label>
+            </div>
+            <div class="check-item">
+                <input type="checkbox" id="step6">
+                <span class="step-num">6</span>
+                <label for="step6">Sprinkle with coconut.</label>
+            </div>
+            <div class="check-item">
+                <input type="checkbox" id="step7">
+                <span class="step-num">7</span>
+                <label for="step7">Freeze until chocolate becomes solid or until you are ready to eat!</label>
+            </div>
+        </div>
+        <div class="notes">
+            <h2 class="section-heading">Notes</h2>
+            <p class="notes-body">Recipe from healthbeet.org</p>
+        </div>
+        <div class="nutrition">
+            <h2 class="section-heading"><span class="icon">📊</span> Nutrition</h2>
+            <div class="nf-label">
+                <p class="nf-title">Nutrition Facts</p>
+                <p class="nf-servings-count">5 servings per container</p>
+                <div class="nf-serving-size"><span>Serving size</span><span>1 bar</span></div>
+                <div class="nf-bar-thick"></div>
+                <div class="nf-calories-block">
+                    <div>
+                        <p class="nf-calories-label">Amount per serving</p>
+                        <p class="nf-calories-label" style="font-size:20px;">Calories</p>
+                    </div>
+                    <span class="nf-calories-num">156</span>
+                </div>
+                <div class="nf-bar-medium"></div>
+                <p class="nf-dv-header">% Daily Value *</p>
+                <hr class="nf-rule">
+                <div class="nf-row bold"><span class="nf-name">Total Fat 10g</span><span class="nf-dv"></span></div>
+                <hr class="nf-rule">
+                <div class="nf-row bold"><span class="nf-name">Total Carbohydrate 10g</span><span class="nf-dv"></span></div>
+                <hr class="nf-rule">
+                <div class="nf-row bold"><span class="nf-name">Protein 8g</span><span class="nf-dv"></span></div>
+                <p class="nf-footnote">* The % Daily Value (DV) tells you how much a nutrient in a serving of food contributes to a daily diet. 2,000 calories a day is used for general nutrition advice.</p>
+            </div>
+        </div>
+        <button class="reset-button" onclick="resetCheckboxes()">&#10003; Reset All Checkboxes</button>
+    </main>
+    <footer>Powered by &#9749; &amp; &#127790;</footer>
+    <script>
+        function resetCheckboxes() {
+            document.querySelectorAll('input[type="checkbox"]').forEach(cb => cb.checked = false);
+        }
+    </script>
+</body>
+</html>
