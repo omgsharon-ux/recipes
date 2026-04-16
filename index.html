@@ -6,65 +6,144 @@
   <title>My Recipes</title>
   <link rel="stylesheet" href="styles.css" />
   <style>
+    /* ── Page base ── */
+    body {
+      width: 100%;
+      max-width: 1400px;
+      background-color: #fdf8f2;
+      color: #2c2c2c;
+      font-family: Georgia, 'Times New Roman', serif;
+    }
+
+    /* ── Header ── */
+    header .header-banner {
+      background: linear-gradient(135deg, #b5651d 0%, #8b4513 60%, #6b3410 100%);
+      height: 140px;
+      color: #fff9f0;
+      font-size: 36px;
+      font-family: Georgia, serif;
+      font-weight: normal;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.18);
+    }
+
     /* ── Search bar ── */
+    #search-wrap {
+      padding: 28px 24px 12px;
+    }
+
     #search {
       width: 100%;
-      height: 70px;
-      font-size: 28px;
-      font-family: Arial, sans-serif;
-      padding: 0 20px;
-      margin: 30px 0 20px;
-      border: 2px solid lightblue;
-      border-radius: 6px;
+      height: 60px;
+      font-size: 22px;
+      font-family: Georgia, serif;
+      padding: 0 20px 0 46px;
+      border: 2px solid #d9b99a;
+      border-radius: 40px;
+      background: #fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%23b5651d' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='11' cy='11' r='8'/%3E%3Cline x1='21' y1='21' x2='16.65' y2='16.65'/%3E%3C/svg%3E") no-repeat 16px center;
       box-sizing: border-box;
-      -webkit-appearance: none; /* prevents iOS styling quirks */
+      color: #2c2c2c;
+      -webkit-appearance: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
     }
 
     #search:focus {
       outline: none;
-      border-color: #6bb8d4;
+      border-color: #b5651d;
+      box-shadow: 0 0 0 3px rgba(181,101,29,0.15);
     }
 
-    /* ── Recipe list ── */
+    #search::placeholder {
+      color: #c0a080;
+    }
+
+    /* ── Recipe count ── */
+    #count {
+      padding: 4px 24px 16px;
+      font-size: 15px;
+      color: #9a7a5a;
+      font-family: Arial, sans-serif;
+    }
+
+    /* ── Card grid ── */
     #recipe-list {
       list-style: none;
-      padding: 0;
-      margin: 0 0 40px;
+      padding: 8px 20px 48px;
+      margin: 0;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 22px;
     }
 
     #recipe-list li {
-      margin-bottom: 16px;
+      margin: 0;
     }
 
     #recipe-list li a {
-      display: block;
-      width: 100%;
-      padding: 22px 20px;
-      background-color: lightblue;
-      color: white;
-      font-size: 26px;
-      font-weight: bold;
-      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      background: #fff;
+      border-radius: 12px;
+      overflow: hidden;
       text-decoration: none;
-      text-transform: uppercase;
-      border-radius: 6px;
-      box-sizing: border-box;
-      /* smooth tap highlight on iOS */
-      -webkit-tap-highlight-color: rgba(0,0,0,0.1);
+      color: #2c2c2c;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+      height: 100%;
+      -webkit-tap-highlight-color: rgba(0,0,0,0.05);
     }
 
     #recipe-list li a:hover,
     #recipe-list li a:active {
-      background-color: #6bb8d4;
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.16);
+    }
+
+    /* ── Card image area ── */
+    .card-img {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      display: block;
+      background-color: #e8d5c0;
+    }
+
+    /* Placeholder shown when no image */
+    .card-placeholder {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 48px;
+      flex-shrink: 0;
+    }
+
+    /* ── Card label ── */
+    .card-name {
+      padding: 14px 16px 16px;
+      font-size: 16px;
+      font-family: Arial, sans-serif;
+      font-weight: 600;
+      line-height: 1.35;
+      color: #2c2c2c;
+      flex-grow: 1;
+      text-transform: none;
     }
 
     /* ── No-results message ── */
     #no-results {
       display: none;
-      font-size: 26px;
-      color: #888;
+      font-size: 22px;
+      color: #9a7a5a;
       text-align: center;
-      margin-top: 40px;
+      margin-top: 60px;
+      padding-bottom: 60px;
+      font-family: Georgia, serif;
     }
   </style>
 </head>
@@ -75,16 +154,19 @@
   </header>
 
   <main>
-    <input
-      type="search"
-      id="search"
-      placeholder="Search recipes…"
-      aria-label="Search recipes"
-      autocomplete="off"
-      autocorrect="off"
-      autocapitalize="off"
-      spellcheck="false"
-    />
+    <div id="search-wrap">
+      <input
+        type="search"
+        id="search"
+        placeholder="Search recipes…"
+        aria-label="Search recipes"
+        autocomplete="off"
+        autocorrect="off"
+        autocapitalize="off"
+        spellcheck="false"
+      />
+    </div>
+    <div id="count"></div>
 
     <ul id="recipe-list"></ul>
     <p id="no-results">No recipes found.</p>
@@ -94,19 +176,72 @@
     /*
      * ──────────────────────────────────────────────────────────────
      * RECIPE LIST
-     * To add a new recipe, add an entry to the array below:
-     *   { name: "Recipe Name", file: "Recipe Name.html" }
-     * Make sure the .html file lives in the same folder as this file.
+     * Each entry: { name, file, img (optional) }
+     * img path is relative to index.html location.
+     * If img is omitted, a placeholder emoji is shown.
      * ──────────────────────────────────────────────────────────────
      */
     const recipes = [
-      { name: "Chicken Bacon Ranch Protein Bowl", file: "Chicken Bacon Ranch Protein Bowl.html" },
-      { name: "Chicken Cacciatore", file: "Chicken Cacciatore.html" }
+      { name: "Chicken Bacon Ranch Protein Bowl",                file: "Wren/Chicken Bacon Ranch Protein Bowl.html",                img: "images/chicken-bacon-ranch-protein-bowl.jpg" },
+      { name: "Chicken Cacciatore",                              file: "Chicken Cacciatore.html",                                   img: "images/chicken-cacciatore.jpg" },
+      { name: "Chicken Parmesan Zucchini Boats",                 file: "Wren/Chicken Parmesan Zucchini Boats.html" },
+      { name: "Chicken Sausage and Pineapple Skewers",           file: "Wren/Chicken Sausage and Pineapple Skewers.html" },
+      { name: "Chinese Orange Chicken",                          file: "Wren/Chinese Orange Chicken.html" },
+      { name: "Chunky Garden Italian Chicken",                   file: "Wren/Chunky Garden Italian Chicken.html" },
+      { name: "Cottage Cheese Scrambled Eggs",                   file: "Wren/Cottage Cheese Scrambled Eggs.html" },
+      { name: "Crack Chicken",                                   file: "Wren/Crack Chicken.html" },
+      { name: "Egg Roll Salad Jars",                             file: "Wren/Egg Roll Salad Jars.html" },
+      { name: "Greek Chicken Bari Bento Box",                    file: "Wren/Greek Chicken Bari Bento Box.html" },
+      { name: "Grilled Balsamic Chicken",                        file: "Wren/Grilled Balsamic Chicken.html" },
+      { name: "Grilled Parmesan Turkey Burgers",                 file: "Wren/Grilled Parmesan Turkey Burgers.html" },
+      { name: "Ham and Swiss Chicken with Mushrooms and Tomatoes", file: "Wren/Ham and Swiss Chicken with Mushrooms and Tomatoes.html" },
+      { name: "Honey Mustard Pork Chops",                        file: "Wren/Honey Mustard Pork Chops.html" },
+      { name: "Italian Chicken Rollups",                         file: "Wren/Italian Chicken Rollups.html" },
+      { name: "Jalapeño Popper Chicken",                         file: "Wren/Jalapeño Popper Chicken.html" },
+      { name: "Jalapeño Chili Lime Turkey Burger",               file: "Wren/Jalapeno Chili Lime Turkey Burger.html" },
+      { name: "Kickin' Chipotle Beef Burgers",                   file: "Wren/Kickin Chipotle Beef Burgers.html" },
+      { name: "Lasagna Stew",                                    file: "Wren/Lasagna Stew.html" },
+      { name: "Low Carb Dijon Shrimp Skillet",                   file: "Wren/Low Carb Dijon Shrimp Skillet.html" },
+      { name: "Low Carb Taco Casserole",                         file: "Wren/Low Carb Taco Casserole.html" },
+      { name: "Protein Banana Split with Low Calorie Topping Ideas", file: "Wren/Protein Banana Split with Low Calorie Topping Ideas.html" },
+      { name: "Protein Hot Chocolate",                           file: "Wren/Protein Hot Chocolate.html" },
+      { name: "Roasted Turkey Spinach Bowl",                     file: "Wren/Roasted Turkey Spinach Bowl.html" },
+      { name: "Salmon Burgers",                                  file: "Wren/Salmon Burgers.html" },
+      { name: "Simple Pork Stir Fry",                            file: "Wren/Simple Pork Stir Fry.html" },
+      { name: "Skillet Roasted Carrots",                         file: "Wren/Skillet Roasted Carrots.html" },
+      { name: "Sour Cream and Onion Burgers",                    file: "Wren/Sour Cream and Onion Burgers.html" },
+      { name: "Spicy Shrimp Bowl",                               file: "Wren/Spicy Shrimp Bowl.html" },
+      { name: "Taco Salad in a Jar",                             file: "Wren/Taco Salad in a Jar.html" },
+      { name: "Turkey and Zucchini Stir Fry",                    file: "Wren/Turkey and Zucchini Stir Fry.html" },
+      { name: "Turkey Pesto Meatballs with Zucchini Noodles",    file: "Wren/Turkey Pesto Meatballs with Zucchini Noodles.html" },
+      { name: "Turkey Sausage and Veggies Packet",               file: "Wren/Turkey Sausage and Veggies Packet.html" },
+      { name: "Turkey Taco Meatballs",                           file: "Wren/Turkey Taco Meatballs.html" },
+      { name: "Turkey Taco Zucchini Boats",                      file: "Wren/Turkey Taco Zucchini Boats.html" }
     ];
+
+    // Placeholder colors + emojis by rough category
+    const placeholders = [
+      { bg: "#fde8d0", emoji: "🍗" },
+      { bg: "#d9ead3", emoji: "🥗" },
+      { bg: "#fce5cd", emoji: "🥩" },
+      { bg: "#d0e4f5", emoji: "🍤" },
+      { bg: "#fff2cc", emoji: "🥚" },
+      { bg: "#f4cccc", emoji: "🌶️" },
+      { bg: "#e6d0de", emoji: "🐟" },
+      { bg: "#d9d2e9", emoji: "🍲" }
+    ];
+
+    function getPlaceholder(name) {
+      // Pick a slot based on the recipe name so it's always consistent
+      let hash = 0;
+      for (let i = 0; i < name.length; i++) hash = (hash * 31 + name.charCodeAt(i)) & 0xffffffff;
+      return placeholders[Math.abs(hash) % placeholders.length];
+    }
 
     const list      = document.getElementById("recipe-list");
     const noResults = document.getElementById("no-results");
     const search    = document.getElementById("search");
+    const countEl   = document.getElementById("count");
 
     function renderRecipes(filter) {
       const query   = (filter || "").trim().toLowerCase();
@@ -116,25 +251,59 @@
 
       if (matches.length === 0) {
         noResults.style.display = "block";
+        countEl.textContent = "";
         return;
       }
 
       noResults.style.display = "none";
+      countEl.textContent = matches.length === recipes.length
+        ? recipes.length + " recipes"
+        : matches.length + " of " + recipes.length + " recipes";
 
       matches.forEach(function(recipe) {
+        const ph = getPlaceholder(recipe.name);
         const li = document.createElement("li");
-        const a  = document.createElement("a");
-        a.href        = recipe.file;
-        a.textContent = recipe.name;
+
+        const a = document.createElement("a");
+        a.href = recipe.file;
+
+        if (recipe.img) {
+          const img = document.createElement("img");
+          img.src   = recipe.img;
+          img.alt   = recipe.name;
+          img.className = "card-img";
+          // Fall back to placeholder if image fails to load
+          img.onerror = function() {
+            this.style.display = "none";
+            const ph_div = document.createElement("div");
+            ph_div.className = "card-placeholder";
+            ph_div.style.background = ph.bg;
+            ph_div.textContent = ph.emoji;
+            a.insertBefore(ph_div, this.nextSibling);
+          };
+          a.appendChild(img);
+        } else {
+          const ph_div = document.createElement("div");
+          ph_div.className = "card-placeholder";
+          ph_div.style.background = ph.bg;
+          ph_div.textContent = ph.emoji;
+          a.appendChild(ph_div);
+        }
+
+        const label = document.createElement("div");
+        label.className   = "card-name";
+        label.textContent = recipe.name;
+        a.appendChild(label);
+
         li.appendChild(a);
         list.appendChild(li);
       });
     }
 
-    // Initial render — show all recipes
+    // Initial render
     renderRecipes("");
 
-    // Filter as Sharon types
+    // Filter as user types
     search.addEventListener("input", function() {
       renderRecipes(this.value);
     });
