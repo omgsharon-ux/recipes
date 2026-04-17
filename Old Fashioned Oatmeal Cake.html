@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Old Fashioned Oatmeal Cake</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        main { padding-bottom: 40px; }
+        footer { padding: 24px 0 60px; font-size: 22px; text-align: center; color: #888; border-top: 1px solid #e8e8e8; margin-top: 40px; }
+        .back-link { display: inline-flex; align-items: center; gap: 6px; margin: 20px 0 16px; font-size: 22px; color: #6bb8d4; text-decoration: none; font-weight: 600; letter-spacing: 0.01em; }
+        .back-link:hover { color: #4a9db8; }
+        header { position: relative; height: 300px; background-size: cover; background-position: center; background-color: #444; overflow: hidden; width: 100vw; margin-left: calc(-50vw + 50%); }
+        header::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.15) 55%, transparent 100%); }
+        header .header-banner { position: absolute; bottom: 0; left: 0; right: 0; padding: 22px 8%; color: #fff; font-size: 32px; font-weight: bold; text-transform: uppercase; letter-spacing: 0.06em; background: none; height: auto; display: block; text-align: left; z-index: 1; text-shadow: 0 2px 6px rgba(0,0,0,0.5); }
+        .section-heading { display: flex; align-items: center; gap: 10px; font-size: 26px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em; color: #222; margin: 36px 0 18px; padding-bottom: 8px; border-bottom: 3px solid #6bb8d4; }
+        .section-heading .icon { font-size: 22px; }
+        .check-item { display: flex; align-items: flex-start; gap: 16px; margin-bottom: 20px; padding: 14px 16px; background: #f8fbfd; border-radius: 8px; border-left: 4px solid transparent; transition: border-color 0.2s, background 0.2s; }
+        .check-item:has(input:checked) { border-left-color: #6bb8d4; background: #eef7fb; }
+        .check-item input[type="checkbox"] { flex-shrink: 0; width: 28px; height: 28px; margin-top: 2px; accent-color: #6bb8d4; cursor: pointer; }
+        .check-item label { font-size: 24px; line-height: 1.4; cursor: pointer; flex: 1; }
+        input[type="checkbox"]:checked + label { text-decoration: line-through; color: #999; }
+        .step-num { flex-shrink: 0; width: 36px; height: 36px; background: #6bb8d4; color: white; font-size: 18px; font-weight: 800; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-top: 0; }
+        .check-item:has(input:checked) .step-num { background: #a8d8ea; }
+        .notes { margin-top: 12px; }
+        .notes-body { background: #fffbf0; border-left: 4px solid #f0c040; border-radius: 0 8px 8px 0; padding: 16px 20px; font-size: 24px; line-height: 1.5; color: #555; }
+        .nutrition { margin-top: 12px; }
+        .nf-label { font-family: Arial, Helvetica, sans-serif; border: 2px solid #000; padding: 4px 6px 4px; max-width: 320px; box-sizing: border-box; }
+        .nf-title { font-size: 36px; font-weight: 900; line-height: 1; margin: 0 0 0; letter-spacing: -0.5px; }
+        .nf-bar-thick { background: #000; height: 10px; margin: 4px -6px; }
+        .nf-bar-medium { background: #000; height: 5px; margin: 4px -6px; }
+        .reset-button { width: 100%; max-width: 100%; height: auto; padding: 24px 0; margin: 40px auto 0; font-size: 22px; font-weight: 800; color: white; background: linear-gradient(135deg, #6bb8d4 0%, #4a9db8 100%); border: none; border-radius: 10px; cursor: pointer; display: block; letter-spacing: 0.05em; text-transform: uppercase; box-shadow: 0 4px 12px rgba(107,184,212,0.4); transition: transform 0.1s, box-shadow 0.1s; }
+        .reset-button:active { transform: translateY(1px); box-shadow: 0 2px 6px rgba(107,184,212,0.3); }
+    </style>
+</head>
+<body>
+    <header style="background-image: url('images/old-fashioned-oatmeal-cake.jpg')">
+        <div class="header-banner">Old Fashioned Oatmeal Cake</div>
+    </header>
+
+    <main>
+        <a href="index.html" class="back-link">&#8592; Back to Recipes</a>
+
+        <div class="ingredients">
+            <h2 class="section-heading"><span class="icon">🛒</span> Ingredients</h2>
+            <p style="font-size:22px;font-weight:700;margin:0 0 10px;">Cake</p>
+            <div class="check-item"><input type="checkbox" id="ing1"><label for="ing1">1 cup oatmeal</label></div>
+            <div class="check-item"><input type="checkbox" id="ing2"><label for="ing2">1 1/4 cup boiling water</label></div>
+            <div class="check-item"><input type="checkbox" id="ing3"><label for="ing3">1/2 cup shortening (Crisco)</label></div>
+            <div class="check-item"><input type="checkbox" id="ing4"><label for="ing4">1 cup brown sugar</label></div>
+            <div class="check-item"><input type="checkbox" id="ing5"><label for="ing5">1 cup white sugar</label></div>
+            <div class="check-item"><input type="checkbox" id="ing6"><label for="ing6">2 eggs beaten</label></div>
+            <div class="check-item"><input type="checkbox" id="ing7"><label for="ing7">1 1/2 cup flour</label></div>
+            <div class="check-item"><input type="checkbox" id="ing8"><label for="ing8">1/2 tsp salt</label></div>
+            <div class="check-item"><input type="checkbox" id="ing9"><label for="ing9">1 tsp baking soda</label></div>
+            <div class="check-item"><input type="checkbox" id="ing10"><label for="ing10">1 tsp cinnamon</label></div>
+            <div class="check-item"><input type="checkbox" id="ing11"><label for="ing11">1/2 tsp nutmeg</label></div>
+            <p style="font-size:22px;font-weight:700;margin:16px 0 10px;">Topping</p>
+            <div class="check-item"><input type="checkbox" id="ing12"><label for="ing12">1 cup brown sugar</label></div>
+            <div class="check-item"><input type="checkbox" id="ing13"><label for="ing13">1 cup butter</label></div>
+            <div class="check-item"><input type="checkbox" id="ing14"><label for="ing14">1/2 cup heavy whipping cream</label></div>
+            <div class="check-item"><input type="checkbox" id="ing15"><label for="ing15">1 tsp vanilla</label></div>
+            <div class="check-item"><input type="checkbox" id="ing16"><label for="ing16">1 cup shredded coconut</label></div>
+            <div class="check-item"><input type="checkbox" id="ing17"><label for="ing17">1 cup chopped pecans</label></div>
+        </div>
+
+        <div class="preparation">
+            <h2 class="section-heading"><span class="icon">👩‍🍳</span> Instructions</h2>
+            <p style="font-size:22px;font-weight:700;margin:0 0 10px;">Cake Directions</p>
+            <div class="check-item"><input type="checkbox" id="step1"><span class="step-num">1</span><label for="step1">Preheat oven to 350°. Grease a 9x13 baking dish.</label></div>
+            <div class="check-item"><input type="checkbox" id="step2"><span class="step-num">2</span><label for="step2">Mix oatmeal and boiling water. Let stand.</label></div>
+            <div class="check-item"><input type="checkbox" id="step3"><span class="step-num">3</span><label for="step3">Cream the shortening and sugar until fluffy. Add eggs, beating very well.</label></div>
+            <div class="check-item"><input type="checkbox" id="step4"><span class="step-num">4</span><label for="step4">Sift the flour then add to the creamed ingredients, stir in oatmeal.</label></div>
+            <div class="check-item"><input type="checkbox" id="step5"><span class="step-num">5</span><label for="step5">Bake 30-40 minutes.</label></div>
+            <p style="font-size:22px;font-weight:700;margin:16px 0 10px;">Topping Directions</p>
+            <div class="check-item"><input type="checkbox" id="step6"><span class="step-num">6</span><label for="step6">Mix sugar, cream and butter in a sauce pan.</label></div>
+            <div class="check-item"><input type="checkbox" id="step7"><span class="step-num">7</span><label for="step7">Bring to a boil and stir constantly until thick.</label></div>
+            <div class="check-item"><input type="checkbox" id="step8"><span class="step-num">8</span><label for="step8">Remove from heat and add remaining ingredients.</label></div>
+            <div class="check-item"><input type="checkbox" id="step9"><span class="step-num">9</span><label for="step9">Pour over cake while hot.</label></div>
+        </div>
+
+        <div class="notes">
+            <h2 class="section-heading">Notes</h2>
+            <p class="notes-body">Best served hot. Mamaw Call's recipe.</p>
+        </div>
+
+        <div class="nutrition">
+            <h2 class="section-heading"><span class="icon">📊</span> Nutrition</h2>
+            <div class="nf-label">
+                <p class="nf-title">Nutrition Facts</p>
+                <div class="nf-bar-thick"></div>
+                <div style="padding:8px 0;font-size:13px;">Nutrition information not available for this recipe.</div>
+            </div>
+        </div>
+
+        <button class="reset-button" onclick="resetCheckboxes()">&#10003; Reset All Checkboxes</button>
+    </main>
+
+    <footer>Powered by &#9749; &amp; &#127790;</footer>
+
+    <script>
+        function resetCheckboxes() {
+            document.querySelectorAll('input[type="checkbox"]').forEach(cb => cb.checked = false);
+        }
+    </script>
+</body>
+</html>
