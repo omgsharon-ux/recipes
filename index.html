@@ -135,6 +135,39 @@
       text-transform: none;
     }
 
+    /* ── Category pills ── */
+    #category-wrap {
+      padding: 0 24px 16px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .cat-pill {
+      padding: 7px 16px;
+      border: 2px solid #d9b99a;
+      border-radius: 20px;
+      font-size: 14px;
+      font-family: Arial, sans-serif;
+      background: #fff;
+      color: #8b4513;
+      cursor: pointer;
+      transition: background 0.15s, border-color 0.15s, color 0.15s;
+      white-space: nowrap;
+      line-height: 1;
+    }
+
+    .cat-pill:hover {
+      border-color: #b5651d;
+      background: #fdf0e6;
+    }
+
+    .cat-pill.active {
+      background: #b5651d;
+      border-color: #b5651d;
+      color: #fff;
+    }
+
     /* ── No-results message ── */
     #no-results {
       display: none;
@@ -166,6 +199,7 @@
         spellcheck="false"
       />
     </div>
+    <div id="category-wrap"></div>
     <div id="count"></div>
 
     <ul id="recipe-list"></ul>
@@ -242,6 +276,7 @@
       { name: "Creamy Deviled Eggs",                             file: "Creamy Deviled Eggs.html",                                  img: "images/creamy-deviled-eggs.jpg" },
       { name: "Creamy Grilled Parmesan Tomatoes",                file: "Creamy Grilled Parmesan Tomatoes.html",                     img: "images/creamy-grilled-parmesan-tomatoes.jpg" },
       { name: "Creamy Spinach Parmesan Stuffed Chicken",         file: "Creamy Spinach Parmesan Stuffed Chicken.html",              img: "images/creamy-spinach-parmesan-stuffed-chicken.jpg" },
+      { name: "Creamy Tuscan White Bean Skillet",               file: "Creamy Tuscan White Bean Skillet.html",                     img: "images/creamy-tuscan-white-bean-skillet.jpg" },
       { name: "Crisp-Skinned Spatchcocked Roast Turkey With Gravy", file: "Crisp-Skinned Spatchcocked Roast Turkey With Gravy.html", img: "images/crisp-skinned-spatchcocked-roast-turkey-with-gravy.jpg" },
       { name: "Crustless Pumpkin Cheesecake",                    file: "Crustless Pumpkin Cheesecake.html",                         img: "images/crustless-pumpkin-cheesecake.jpg" },
       { name: "Cucumber Salad",                                  file: "Cucumber Salad.html",                                       img: "images/cucumber-salad.jpg" },
@@ -432,7 +467,67 @@
       { name: "Zesty Italian Pasta Salad",                       file: "Zesty Italian Pasta Salad.html",                        img: "images/zesty-italian-pasta-salad.jpg" }
     ];
 
-    // Placeholder colors + emojis by rough category
+    // ── Category classification ───────────────────────────────────
+    const CATEGORIES = [
+      "All",
+      "Chicken", "Beef", "Pork", "Turkey", "Fish & Seafood",
+      "Eggs & Breakfast", "Salads", "Soups & Stews",
+      "Sides & Veggies", "Breads & Pasta", "Desserts & Sweets",
+      "Sauces & Dips", "Seasonings", "Protein & Snacks"
+    ];
+
+    function getCategory(name) {
+      const n = name.toLowerCase();
+
+      if (/spice blend|smoke rub|spice rub|mirepoix|popcorn seasoning|fry seasoning|meatloaf seasoning|shake bake|herbs de provence|beef gravy mix|onion soup mix|soup mix|vegetable broth powder|vegetable seasoning|pancake mix|bisquick|dream whip|sos mix|soup substitute/.test(n))
+        return "Seasonings";
+
+      if (/\bdip\b|cheeseball|pimento cheese|tzatziki|hollandaise|hoisin|szechuan|teriyaki sauce|raising cane|le houllier|giardiniera|sauerkraut|\bsauce\b/.test(n))
+        return "Sauces & Dips";
+
+      if (/\bsoup\b|\bstew\b|\bchili\b/.test(n))
+        return "Soups & Stews";
+
+      if (/protein shake|protein hot chocolate|protein.*banana|energy ball|built bar|classic vanilla protein|cracker jack|no bake energy/.test(n) ||
+          (/protein (bowl|pizza)/.test(n) && !/chicken|beef|turkey|pork|shrimp/.test(n)))
+        return "Protein & Snacks";
+
+      if (/\bsalad\b/.test(n) && !/pretzel salad|ambrosia salad/.test(n))
+        return "Salads";
+
+      if (/\bsalmon\b|\btuna\b|\bshrimp\b|\bcod\b/.test(n))
+        return "Fish & Seafood";
+
+      if (/\bturkey\b/.test(n))
+        return "Turkey";
+
+      if (/\bpork\b|kielbasa/.test(n) ||
+          (/\bsausage\b/.test(n) && !/chicken sausage|turkey sausage/.test(n) && !/\bchicken\b|\bturkey\b/.test(n)))
+        return "Pork";
+
+      if (/\bchicken\b|\bkfc\b/.test(n))
+        return "Chicken";
+
+      if (/\bbeef\b|\bsteak\b|\bsirloin\b|meatloaf|big mac/.test(n) ||
+          (/\bburger\b/.test(n) && !/spice blend|turkey|chicken|shrimp|salmon/.test(n)))
+        return "Beef";
+
+      if (/\bbread\b|rolls?\b|\btortilla\b|\bbiscuit\b|cornbread|doughnut|hushpuppi|noodle|pasta|\bpizza\b|macaroni|lasagna/.test(n))
+        return "Breads & Pasta";
+
+      if (/\begg\b|frittata|french toast|quiche|omelet|breakfast/.test(n))
+        return "Eggs & Breakfast";
+
+      if (/\bcake\b|\bcookie\b|\bpie\b|\bbrownie\b|\bfudge\b|\bmuffin\b|trifle|eclair|cobbler|ice cream|cheesecake|pretzel salad|ambrosia|pudding|mousse|jello|\bdessert\b|frosting|buttercream|\bcurd\b|banana split/.test(n))
+        return "Desserts & Sweets";
+
+      if (/carrot|potato|cauliflower|mushroom|green bean|casserole|sweet potato|broccoli|zucchini|applesauce|dehydrat|canning|refried|cucumber|tomato|spinach/.test(n))
+        return "Sides & Veggies";
+
+      return "Other";
+    }
+
+    // ── Placeholder colors ───────────────────────────────────────
     const placeholders = [
       { bg: "#fde8d0", emoji: "🍗" },
       { bg: "#d9ead3", emoji: "🥗" },
@@ -445,20 +540,44 @@
     ];
 
     function getPlaceholder(name) {
-      // Pick a slot based on the recipe name so it's always consistent
       let hash = 0;
       for (let i = 0; i < name.length; i++) hash = (hash * 31 + name.charCodeAt(i)) & 0xffffffff;
       return placeholders[Math.abs(hash) % placeholders.length];
     }
 
+    // ── State & DOM refs ─────────────────────────────────────────
+    let activeCategory = "All";
+
     const list      = document.getElementById("recipe-list");
     const noResults = document.getElementById("no-results");
     const search    = document.getElementById("search");
     const countEl   = document.getElementById("count");
+    const catWrap   = document.getElementById("category-wrap");
 
+    // ── Build category pills ─────────────────────────────────────
+    CATEGORIES.forEach(function(cat) {
+      const btn = document.createElement("button");
+      btn.className   = "cat-pill" + (cat === "All" ? " active" : "");
+      btn.textContent = cat;
+      btn.addEventListener("click", function() {
+        activeCategory = cat;
+        document.querySelectorAll(".cat-pill").forEach(function(b) { b.classList.remove("active"); });
+        btn.classList.add("active");
+        search.value = "";
+        renderRecipes("");
+      });
+      catWrap.appendChild(btn);
+    });
+
+    // ── Render ───────────────────────────────────────────────────
     function renderRecipes(filter) {
-      const query   = (filter || "").trim().toLowerCase();
-      const matches = recipes.filter(r => r.name.toLowerCase().includes(query));
+      const query = (filter || "").trim().toLowerCase();
+
+      let pool = recipes;
+      if (activeCategory !== "All") {
+        pool = recipes.filter(function(r) { return getCategory(r.name) === activeCategory; });
+      }
+      const matches = query ? pool.filter(function(r) { return r.name.toLowerCase().includes(query); }) : pool;
 
       list.innerHTML = "";
 
@@ -469,41 +588,46 @@
       }
 
       noResults.style.display = "none";
-      countEl.textContent = matches.length === recipes.length
-        ? recipes.length + " recipes"
-        : matches.length + " of " + recipes.length + " recipes";
+
+      if (activeCategory === "All") {
+        countEl.textContent = matches.length === recipes.length
+          ? recipes.length + " recipes"
+          : matches.length + " of " + recipes.length + " recipes";
+      } else {
+        countEl.textContent = query
+          ? matches.length + " of " + pool.length + " " + activeCategory + " recipes"
+          : pool.length + " " + activeCategory + " recipes";
+      }
 
       matches.forEach(function(recipe) {
         const ph = getPlaceholder(recipe.name);
         const li = document.createElement("li");
-
-        const a = document.createElement("a");
-        a.href = recipe.file;
+        const a  = document.createElement("a");
+        a.href   = recipe.file;
 
         if (recipe.img) {
           const img = document.createElement("img");
-          img.src   = recipe.img;
-          img.alt   = recipe.name;
+          img.src       = recipe.img;
+          img.alt       = recipe.name;
           img.className = "card-img";
-          // Fall back to placeholder if image fails to load
-          img.onerror = function() {
+          img.onerror   = function() {
             this.style.display = "none";
             const ph_div = document.createElement("div");
-            ph_div.className = "card-placeholder";
+            ph_div.className    = "card-placeholder";
             ph_div.style.background = ph.bg;
-            ph_div.textContent = ph.emoji;
+            ph_div.textContent  = ph.emoji;
             a.insertBefore(ph_div, this.nextSibling);
           };
           a.appendChild(img);
         } else {
           const ph_div = document.createElement("div");
-          ph_div.className = "card-placeholder";
+          ph_div.className        = "card-placeholder";
           ph_div.style.background = ph.bg;
-          ph_div.textContent = ph.emoji;
+          ph_div.textContent      = ph.emoji;
           a.appendChild(ph_div);
         }
 
-        const label = document.createElement("div");
+        const label       = document.createElement("div");
         label.className   = "card-name";
         label.textContent = recipe.name;
         a.appendChild(label);
