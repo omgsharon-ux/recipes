@@ -470,8 +470,8 @@
     // ── Category classification ───────────────────────────────────
     const CATEGORIES = [
       "All",
-      "Chicken", "Beef", "Pork", "Turkey", "Fish & Seafood",
-      "Eggs & Breakfast", "Salads", "Soups & Stews",
+      "Appetizers", "Chicken", "Beef", "Pork", "Turkey", "Fish & Seafood",
+      "Eggs & Breakfast", "Salads", "Soups & Sandwiches",
       "Sides & Veggies", "Breads & Pasta", "Desserts & Sweets",
       "Sauces & Dips", "Seasonings", "Protein & Snacks"
     ];
@@ -482,11 +482,14 @@
       if (/spice blend|smoke rub|spice rub|mirepoix|popcorn seasoning|fry seasoning|meatloaf seasoning|shake bake|herbs de provence|beef gravy mix|onion soup mix|soup mix|vegetable broth powder|vegetable seasoning|pancake mix|bisquick|dream whip|sos mix|soup substitute/.test(n))
         return "Seasonings";
 
-      if (/\bdip\b|cheeseball|pimento cheese|tzatziki|hollandaise|hoisin|szechuan|teriyaki sauce|raising cane|le houllier|giardiniera|sauerkraut|\bsauce\b/.test(n))
+      if (/mozzarella sticks|stuffed mushroom|cheeseball|lumpia/.test(n))
+        return "Appetizers";
+
+      if (/\bdip\b|pimento cheese|tzatziki|hollandaise|hoisin|szechuan|teriyaki sauce|raising cane|le houllier|giardiniera|sauerkraut|\bsauce\b/.test(n))
         return "Sauces & Dips";
 
-      if (/\bsoup\b|\bstew\b|\bchili\b/.test(n))
-        return "Soups & Stews";
+      if (/\bsoup\b|\bstew\b|\bchili\b|\bsandwich\b|\bsandwiches\b/.test(n))
+        return "Soups & Sandwiches";
 
       if (/protein shake|protein hot chocolate|protein.*banana|energy ball|built bar|classic vanilla protein|cracker jack|no bake energy/.test(n) ||
           (/protein (bowl|pizza)/.test(n) && !/chicken|beef|turkey|pork|shrimp/.test(n)))
